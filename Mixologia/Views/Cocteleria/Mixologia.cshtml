@@ -1,0 +1,338 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        display: ["Epilogue"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-primary/20 bg-background-light/80 px-10 py-3 backdrop-blur-sm dark:border-primary/20 dark:bg-background-dark/80">
+            <div class="flex items-center gap-4">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+                    <path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white">Mixology Masters</h2>
+            </div>
+            <nav class="hidden items-center gap-8 md:flex">
+                <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#servicios">Servicios</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#galeria">Galería</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#testimonios">Testimonios</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#certificaciones">Certificaciones</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#contacto">Contacto</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform hover:scale-105">
+                    <span class="truncate">Reservar</span>
+                </button>
+                <div class="aspect-square h-10 w-10 rounded-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCgOT_vL7cPJbMKaoCu9wiyLm0aHMU3k5_Z4uZW4x4nkX2vbWpmPGbV1h-TPeTbvqUrInoPC_KCg0v2-GwqZOyO_H08ttLfJyT1a6WvEcDFAJj6P-92PMTVpRJeG58OiiAP1IMDB3ZdBawc_zmgX8AwjohK37f9Yj95Q_EtXIj5-oBIjYr5VQtuR4bqbXwtlLuwXR6w5gA5LG8JQIrqkmhhqrV5_ubrJgi_x6pNSJzR5IIJnXcyluJ0HrOvqv4LzIHUcfWx8RW3DUKd");'></div>
+            </div>
+        </header>
+        <main class="flex flex-1 flex-col">
+            <section class="relative flex min-h-[60vh] items-center justify-center bg-cover bg-center py-20 text-center text-white" style='background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuWNo34GFnUDCeQd1ywj6Z1xBvFGWLWzIPsngxQUVjXDknkxG_tAeRpVIUobwoXwOzGoQU4utmbiyLzX8JUi7LcWKXhIJEuStVaf1jkWepcnafGYVWIlMRSTnDp4ZyWRjrvfaZRYRkJfoFiDcPjLpg4AsOb3ZogTEXWTwsdDK-9bkSSpeGrDrMa8YO_RQHVpkreI-nw0NZSqqKwkgcGyuPkBupfIMegsFgloYPeCer0hLbSjBqNArwFzasNZUJKkr4MKybx9UMOF2k");'>
+                <div class="mx-auto max-w-4xl px-4">
+                    <h1 class="text-4xl font-black tracking-tight md:text-6xl">Coctelería de Autor para Eventos Exclusivos</h1>
+                    <p class="mt-4 text-lg font-light md:text-xl">
+                        Eleva tus celebraciones con nuestros servicios de coctelería personalizados. Desde eventos corporativos hasta fiestas privadas, creamos experiencias
+                        inolvidables.
+                    </p>
+                    <button class="mt-8 flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-transform hover:scale-105">
+                        <span class="truncate">Descubre Nuestros Servicios</span>
+                    </button>
+                </div>
+            </section>
+            <section class="px-4 py-16 sm:px-6 lg:px-8" id="servicios">
+                <div class="mx-auto max-w-7xl">
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Servicios Personalizados para Cada Ocasión</h2>
+                        <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+                            Ofrecemos una gama de servicios adaptados a tus necesidades, desde la creación de menús exclusivos hasta la formación de personal para eventos.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="text-primary" data-icon="Calendar" data-size="32px" data-weight="regular">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Eventos Privados</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Celebra tus momentos especiales con una barra de cocteles diseñada a tu medida. Ideal para bodas, cumpleaños y reuniones familiares.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="text-primary" data-icon="Users" data-size="32px" data-weight="regular">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Clases de Coctelería</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Aprende a preparar tus cocteles favoritos con nuestros expertos. Clases interactivas y divertidas para todos los niveles.</p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="text-primary" data-icon="BaseballCap" data-size="32px" data-weight="regular">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M128,24h0A104.12,104.12,0,0,0,24,128v56a24,24,0,0,0,24,24,24.11,24.11,0,0,0,14.18-4.64C74.33,194.53,95.6,184,128,184s53.67,10.52,65.81,19.35A24,24,0,0,0,232,184V128A104.12,104.12,0,0,0,128,24Zm88,104v8.87a166,166,0,0,0-40.94-18.22A167,167,0,0,0,146.19,41.9,88.14,88.14,0,0,1,216,128ZM128,44.27a152.47,152.47,0,0,1,30.4,70.46,170.85,170.85,0,0,0-60.84,0A153.31,153.31,0,0,1,128,44.27ZM109.81,41.9a167,167,0,0,0-28.87,76.76A166,166,0,0,0,40,136.88V128A88.14,88.14,0,0,1,109.81,41.9ZM211.66,191.11a8,8,0,0,1-8.44-.69C189.16,180.2,164.7,168,128,168S66.84,180.2,52.78,190.42a8,8,0,0,1-8.44.69A7.77,7.77,0,0,1,40,184V156.07a152,152,0,0,1,176,0V184A7.77,7.77,0,0,1,211.66,191.11Z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Catering de Bebidas</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Lleva la experiencia de un bar de alta gama a tu evento. Ofrecemos una amplia selección de bebidas y cocteles para satisfacer a tus invitados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-gray-50 px-4 py-16 dark:bg-gray-900/50 sm:px-6 lg:px-8" id="galeria">
+                <div class="mx-auto max-w-7xl text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Galería</h2>
+                    <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7X0ORAagazdhAKD1bSwfldx1t3NPefVBynS7T2Fh2-N6vLFlXGvmH5tKkmvDKk-vQioGgB0lE4fLkl58SJri3yoFmXBMx04M8lpdo3eGB92Xg2IuVXvD6rP5MaXXqwyUdhNAdN3k7asSgTzqzScO4Yv_1YTLJpgGIDZOVKpGVvFam6x6ckY8z90snLDnC8u8ipxd1-hbWXhN8wAg9lqOTBLqNinIkOYWsnGxUe0sG4hgJxyhxR4e9ccd7t05oiN9PNDguH_u3bbck");'></div>
+                        </div>
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7h-IoaO4bt-iviRbx-zjIzhY1pmlARIpzdakj9SnZdUx6sr19vGcOQFGVZEjaL_Ka0sfS3oePCbJh_MLunu1ipkhOeCtG1YIp4L5etCqpfRYaMH6kTt_7TgwxrQDOZV6BBOO7wkum4p2eonxVJI1WhMTwtYws4iezA6fE94pnOVvL3Z3AFiVmHwsBMKOTprW9UiLVWYcBQaeLmhG1ks69rv4oMx1jfVcaHvX-e7JF-ulOP3tyOVOxFdUWimibcSBsUpdZViATVqPk");'></div>
+                        </div>
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPqGkRFnWl6AZTKmiovxHeaLcDduHOZMq-ohojY_61C6nIWaYnov1xCCyIfYJngZ6xHhQ6vFon93yI2Q72lU4Rrq3sfsZID5LcZBoDcRS36ng4gtLXuCAzgI2AlVzvJtMfGjk7Nn6Ppev3pbYCowhuqZKzDw-8L-BMgjaG4-LQjrXBE8k3U4toPUTmxa8U8cS2sgqNwjzJ_Y8MUrI_pcc6hhmSGsFAp81lf3sVzls7hozhpDr-1xGAlLfChJAi3lrB2GOV_1ZCiN-k");'></div>
+                        </div>
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNYyyIUVqP0vCWAVSnFIN8npmoEdpKM6Fxn_c4dVZnRmoyVBA7COuSyOA5_pr1TpE1r18ZXYZlDNZs84uwDKCuLzSEePh4jMsWACiZGEKKgNc0O5aA9_Glidi4tsRw9KBehPwOeTUb5SDpuBUqLQovtKVcmUmMxzXGgLeZOL41A5WgZujsim9tMIosWVAzbmk5xExiw78f8HO_PGrLDv8rOVIAtqWmgUVvuoTHf55QG-BZqHMYyrbud0maAsqOxlpXFKiE96TPd3nI");'></div>
+                        </div>
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOU-wCF_e-Oq4wAJTeQRcJPXx6i-HkKtSOlgCYtuOHosJljl9iqnPdkqWws3x6WuSqmr4csFnDyKg_1LXFRByuvVX3xT4LEN3_24Kb0IEcBEcJpQ4WiJm9zQQFPktz1Gw1otIyU30WEmNKPOMrG8jHKEuh4XXgj5IIyTkDXA2RfveNEydXSDhWRNRzHUvpcDUQMljv_7sN26O7ozHs27EOi4LY9E6-G331cxqDvfKuufuBjD8lIOY7I9123y86fZqV1E6jK2W1xvuV");'></div>
+                        </div>
+                        <div class="overflow-hidden rounded-xl transition-transform hover:scale-105">
+                            <div class="aspect-square w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9Usvle6Uo6SlgfMIjjVS-Crv9ZiL9vTb4CaeiwLx7meVzh8V63y0CZtsBfbSs6cdJUUmUD5aytbIlSagPXOTz66mfScUoBV39UPX_UeOjbFy1vuaFRB5nYfF-69vMZ5MBMTCdlzOoh-2k23QcXKMZhVJ1u-YA2vUJaR7vI_jSw8lN6mAOyX8UiVbRO2XAdVtVvZLvFyX_7wkCV-sPaSbiwy3Mw31ZhFTxF8RWSboy40AP6DxktapBufWeQJZUtum08mbjucab0TlP");'></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="px-4 py-16 sm:px-6 lg:px-8" id="testimonios">
+                <div class="mx-auto max-w-7xl">
+                    <h2 class="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Testimonios</h2>
+                    <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/20">
+                            <div class="flex items-center gap-4">
+                                <div class="aspect-square h-12 w-12 rounded-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKTOUxLotJAM3GJ-obVbTSeKqLiFwK0_SPWX4qQj0-UOJhPLvu5LfjagWiTc9Ke5ey1enN4T6beyYZge8nY1bKYJnZoSS-p_ehEsKV-YZbGq9Xl6mpaDMHny7nAw25JSqapeGMdor-qH50dk796m70qit6QJA6AQ-EbNSdkRSyhlJEXhbJww75A2efEJMNYF8J7Y0EDo0s6CGO75lhz18xKnUyQQXRPgk0FjyIHZfjo00BuUsQvK7aPtlkwjhdSQJ--KQclCIf_Pux");'></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 dark:text-white">Sofia Rodriguez</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">2023-08-15</p>
+                                </div>
+                            </div>
+                            <div class="flex text-primary">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">"La atención y profesionalismo de Mixology Masters superaron nuestras expectativas. Los cocteles fueron un éxito en nuestra boda."</p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/20">
+                            <div class="flex items-center gap-4">
+                                <div class="aspect-square h-12 w-12 rounded-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHjAhsn2tWn53pJQL1aIinfayhBr1aJWxnj3z_Xj7XvyQrRGu39BvT4g_Xi4p_12klkx0JXT-fGZYINr_mR773SiY9CIqxxZKt75JniejE0qqiVJTwkW8Om1Ts_OcD7T5K6-0HFYCv0yklY8Nqihj9RV6rgmVa1Rpq60EDkCB7wWd1ZM4bSjLgMUDlpLK0LN2Rlqz3BmXEAronV9ZYj0kvFvn2SlEAyVf7vUc9BUog-LkuNnwaluIgS5tpjGEWN-eHPJCgvokWu9wB");'></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 dark:text-white">Carlos Mendoza</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">2023-07-22</p>
+                                </div>
+                            </div>
+                            <div class="flex text-primary">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                "Contratamos a Mixology Masters para un evento corporativo y fue un acierto total. Los invitados quedaron encantados con la variedad y calidad de las bebidas."
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/20">
+                            <div class="flex items-center gap-4">
+                                <div class="aspect-square h-12 w-12 rounded-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAi8kTiR4sVtxtWMPfTc8KvQ-i9ihuEI0Oywfz3MMm3LCcJRQp85J0Oc_T1gRNoKaBrl4I4Ve7nRMSLcOrOmEHzn-9fcLI5KMVwubBEMc054j_6vDwFdepGIDgCjpB4MHKP06hsjUQZeK6A94bQHUh3Dugo-wuw3VE_J8WUt2-pZlFmf64D3y904qMH6_GJLUTJI_4TNUUBidE9CCQKQYiG8OFqtfjGnb2rTBVpfS2s4dqhFhHZpsMlrZ6G1UVjm9wcSYDbtvTIjU9P");'></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 dark:text-white">Ana Torres</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">2023-06-10</p>
+                                </div>
+                            </div>
+                            <div class="flex text-primary">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                                </svg>
+                                <svg class="text-gray-300 dark:text-gray-600" fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">"Tomé una clase de coctelería con Mixology Masters y aprendí muchísimo. Los instructores son muy amables y pacientes."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-gray-50 px-4 py-16 dark:bg-gray-900/50 sm:px-6 lg:px-8" id="certificaciones">
+                <div class="mx-auto max-w-7xl">
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Nuestras Certificaciones</h2>
+                        <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+                            Estamos orgullosos de contar con las siguientes certificaciones que avalan nuestra experiencia y profesionalismo en el arte de la coctelería.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex flex-col items-center gap-4 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="rounded-full bg-primary/10 p-4 text-primary">
+                                <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                    <path d="M12 14l9-5-9-5-9 5 9 5zm0 0v9"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Bartender Profesional Certificado</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Otorgado por la Asociación Internacional de Bartenders (IBA).</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-4 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="rounded-full bg-primary/10 p-4 text-primary">
+                                <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Especialista en Mixología Avanzada</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Certificación de la European Bartender School (EBS).</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-4 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/20 dark:hover:shadow-primary/10">
+                            <div class="rounded-full bg-primary/10 p-4 text-primary">
+                                <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Experto en Destilados y Licores</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Programa de certificación WSET Nivel 2 en Espirituosos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="px-4 py-16 sm:px-6 lg:px-8" id="contacto"> 
+                <div class="mx-auto max-w-lg text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Contacto</h2> @* AQUI EMPIZA EL FORMULARIO *@
+                    <form action="#" class="mt-8 space-y-6" method="POST">
+                        <div>
+                            <label class="sr-only" for="name">Nombre</label>
+                            <input autocomplete="name" class="form-input block w-full rounded-lg border-gray-300 bg-white p-4 text-gray-900 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary dark:focus:ring-primary" id="name" name="name" placeholder="Tu nombre" required="" type="text" />
+                        </div>
+                        <div>
+                            <label class="sr-only" for="email">Email</label>
+                            <input autocomplete="email" class="form-input block w-full rounded-lg border-gray-300 bg-white p-4 text-gray-900 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary dark:focus:ring-primary" id="email" name="email" placeholder="Tu email" required="" type="email" />
+                        </div>
+                        <div>
+                            <label class="sr-only" for="phone">Teléfono</label>
+                            <input autocomplete="tel" class="form-input block w-full rounded-lg border-gray-300 bg-white p-4 text-gray-900 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary dark:focus:ring-primary" id="phone" name="phone" placeholder="Tu teléfono" type="tel" />
+                        </div>
+                        <div>
+                            <label class="sr-only" for="message">Mensaje</label>
+<textarea class="form-textarea block w-full rounded-lg border-gray-300 bg-white p-4 text-gray-900 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary dark:focus:ring-primary" id="message" name="message" placeholder="Tu mensaje" required="" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <button class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-transform hover:scale-105" type="submit">
+                                Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="border-t border-gray-200 bg-background-light px-4 py-8 dark:border-gray-800 dark:bg-background-dark sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl text-center">
+                <div class="flex flex-wrap items-center justify-center gap-6">
+                    <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#servicios">Servicios</a>
+                    <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#galeria">Galería</a>
+                    <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#testimonios">Testimonios</a>
+                    <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#certificaciones">Certificaciones</a>
+                    <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#contacto">Contacto</a>
+                </div>
+                <div class="mt-6 flex justify-center gap-6">
+                    <a class="text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary" href="#">
+                        <span class="sr-only">Instagram</span>
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                        </svg>
+                    </a>
+                    <a class="text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary" href="#">
+                        <span class="sr-only">Facebook</span>
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">© 2024 Mixology Masters. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

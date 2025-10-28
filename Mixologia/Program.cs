@@ -12,6 +12,8 @@ builder.Services.AddDbContext<CocteleriaContext>(options =>
     options.UseSqlServer(conString));
 
 
+
+builder.Services.AddScoped<BL.Solicitudes>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

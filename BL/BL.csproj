@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mixologia\Mixologia.csproj" />
+    <ProjectReference Include="..\DL\DL.csproj" />
     <ProjectReference Include="..\ML\ML.csproj" />
   </ItemGroup>
 
