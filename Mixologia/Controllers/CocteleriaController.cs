@@ -16,9 +16,27 @@ namespace Mixologia.Controllers
         }
 
 
-
+        [HttpGet]
         public IActionResult Mixologia()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Form(ML.Solicitudes Solicitud)
+        {
+            ML.Result resultPost = _contextSolicitudes.CrearSolicitud(Solicitud);
+
+            if (resultPost.Correct)
+            {
+                ViewBag.Message = "¡Tu solicitud ha sido enviada exitosamente!";
+            }
+            else
+            {
+                ViewBag.Message = "Hubo un error al enviar tu solicitud: " + resultPost.ErrorMessage;
+            }
+
+
             return View();
         }
     }
