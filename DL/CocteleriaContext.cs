@@ -24,6 +24,8 @@ public partial class CocteleriaContext : DbContext
     public virtual DbSet<DeleteSolicitud> DeleteSolicitud { get; set; }
     public virtual DbSet<SolicitudGetById> SolicitudGetById { get; set; }
     public virtual DbSet<ActualizarStatusSolicitud> ActualizarStatusSolicitud { get; set; }
+    public virtual DbSet<CrearSolicitud> CrearSolicitud { get; set; }
+
 
 
 
@@ -85,7 +87,10 @@ public partial class CocteleriaContext : DbContext
         {
             entity.HasNoKey();
         });
-
+        modelBuilder.Entity<CrearSolicitud>(entity =>
+        {
+            entity.HasNoKey();
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 

@@ -162,5 +162,29 @@ namespace BL
             }
             return result;
         } //CREADO, SOLO PROBAR SU FUNCIONAMIENTO
+
+        public ML.Result CrearSolicitud(ML.Solicitudes Solicitude)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                var NombreUsuario = new SqlParameter("@NombreUsuario", Solicitude.NombreUsuario ?? (object)DBNull.Value);
+                var Email = new SqlParameter("@Email", Solicitude.Email ?? (object)DBNull.Value);
+                var Telefono = new SqlParameter("@Telefono", Solicitude.Telefono ?? (object)DBNull.Value);
+                var Mensaje = new SqlParameter("@Mensaje", Solicitude.Mensaje ?? (object)DBNull.Value);
+                var query = _context.Database.ExecuteSqlRaw("CrearSolicitud @NombreUsuario, @Email, @Telefono, @Mensaje", NombreUsuario, Email, Telefono, Mensaje);
+                if (query > 0)
+                {
+                    result.Correct = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Correct = false;
+                result.ErrorMessage = ex.Message;
+                result.Ex = ex;
+            }
+            return result;
+        } //CREADO, SOLO PROBAR SU FUNCIONAMIENTO
     }
 }

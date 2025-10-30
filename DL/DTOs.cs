@@ -39,5 +39,13 @@ namespace DL
             public int IdSolicitud { get; set; }
             public int IdStatus { get; set; }
         }
+        public class CrearSolicitud
+        {
+            public string? NombreUsuario { get; set; }
+            public string? Email { get; set; }
+            public string? Telefono { get; set; }
+            public string? Mensaje { get; set; }
+            public int IdStatus { get; set; }
+        }
     }
 }
