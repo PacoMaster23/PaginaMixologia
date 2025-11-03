@@ -9,9 +9,19 @@ namespace Mixologia.Controllers
         {
             return View();
         }
+        
+        [HttpGet]
         public IActionResult Solicitudes()
         {
-            return View();
+        ML.Solicitud Solicitud = new ML.Solicitud();
+        ML.Result resultSolicitud = new ML.Result();
+
+        if(resultSolicitud.Correct)
+        {
+        Solicitud.Solicitudes = resultSolicitud.Objects;
+        }
+        
+            return View(Solicitud);
         }
     //AGREGAR BOTONES Y LIGARLOS CON ID
         [HttpGet]
